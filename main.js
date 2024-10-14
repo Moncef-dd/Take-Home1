@@ -58,11 +58,22 @@ class UserCollection {
     }
 
     bookRemove(bookID) {
-        this.collection = this.collection.filter((id) => id != bookID);
+        const found = this.collection.find(id => id === bookID)
+        if(found) {
+            this.collection = this.collection.filter((id) => id != bookID);
+        } else {
+            console.log("Book not found!"); 
+        }
 
     }
-
     setActiveBook(bookID) {
-        this.idActive = bookID; 
+        if(!this.idActive) {
+            this.idActive = bookID; 
+        } else {
+            this.idActive = bookID; 
+            console.log("the active book has been replaced!")
+        }
     }
+
+    
 }
