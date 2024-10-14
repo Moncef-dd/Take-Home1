@@ -13,7 +13,7 @@ class Book {
     constructor(bookID, title, data) {
         this.bookID = bookID; 
         this.title = title; 
-        this.data = data; // a list of strings
+        this.data = data; // a list of strings (each string represent a single page)
 
         this.seen = false; 
         this.currPage = 0;
@@ -32,7 +32,7 @@ class Book {
 
     turnThePage() {
         if(this.currPage === this.data.length){
-            return this.data[0]; // redirect to the cover page
+            return this.data[0]; // redirect to the cover page (paage 0)
         } else {
             this.currPage++; 
             return this.data[this.currPage]; 
@@ -44,7 +44,7 @@ class Book {
 
 class UserCollection {
     constructor() {
-        this.collection = {}; // {id: title} 
+        this.collection = {}; // {id: title} format
         this.idCounter = 0;
 
         this.idActive = null;  
