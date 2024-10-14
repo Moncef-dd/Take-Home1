@@ -41,3 +41,24 @@ class Book {
     }
 
 }
+
+class UserCollection {
+    constructor() {
+        this.collection = {}; // {id: title} 
+        this.idCounter = 0;
+
+        this.idActive = null;  
+    }
+
+    bookAdd(title, data) {
+        const newBook = new Book(this.idCounter, title, data); 
+
+        this.collection[newBook.bookID] = newBook; 
+        this.idCounter++; 
+    }
+
+    bookRemove(bookID) {
+        this.collection = this.collection.filter((id) => id != bookID);
+
+    }
+}
