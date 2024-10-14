@@ -61,4 +61,8 @@ class UserCollection {
         this.collection = this.collection.filter((id) => id != bookID);
 
     }
+
+    setActiveBook(bookID) {
+        this.idActive = bookID; 
+    }
 }
