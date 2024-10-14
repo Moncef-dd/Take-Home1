@@ -21,10 +21,21 @@ class Book {
 
     pageDisplay() {
         if(!this.seen && this.data){
+            this.seen = true;
             this.currPage = 1; 
+
             return this.data[this.currPage]; 
         } else {
+            return this.data[this.currPage]
+        }
+    }
 
+    turnThePage() {
+        if(this.currPage === this.data.length){
+            return this.data[0]; // redirect to the cover page
+        } else {
+            this.currPage++; 
+            return this.data[this.currPage]; 
         }
 
     }
