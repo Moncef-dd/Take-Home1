@@ -56,4 +56,7 @@ function parse_parameters(qry) {
             wordIndex++;
         }
     }
+
+    return parsedParameter;
 }
+
