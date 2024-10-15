@@ -10,8 +10,6 @@ example queries:
    13 inch = ? m 
    10 inch = ? hr "not convertible" 
 */
-
-
 /*
 solution brainstorming: 
 
@@ -41,13 +39,12 @@ class Node {
 
 }
 
-function parse_parameters(qry) {
+function parseParameters(qry) {
     let parsedParameter = {}; 
     const responseKeys = ["the left unit", "quantity", "the right unit"]; 
     const units = ["meter", "inch", "cm", "hour", "minutes", "seconds"]; 
 
     let wordIndex = 0; 
-
 
     for(key in responseKeys){
         if(units.includes(qry[wordIndex]) || qry[wordIndex].isInteger()){
@@ -60,3 +57,6 @@ function parse_parameters(qry) {
     return parsedParameter;
 }
 
+function answerQuery(parameters, node) {
+    // the interviewer stopped me here. 
+}
