@@ -30,12 +30,30 @@ class Node {
     constructor(unit){
         this.unit = unit; 
         this.edges = []; 
+
+        this.edgesCounter = -1
     }
 
     addEdge(mult, other_unit) {
-        this.edges.push(new Edge(mult, other_unit)); 
+        this.edgesCounter++
+        this.edges[this.edgesCounter] = new Edge(mult, other_unit); 
     }
 
-    
+}
 
+function parse_parameters(qry) {
+    let parsedParameter = {}; 
+    const responseKeys = ["the left unit", "quantity", "the right unit"]; 
+    const units = ["meter", "inch", "cm", "hour", "minutes", "seconds"]; 
+
+    let wordIndex = 0; 
+
+
+    for(key in responseKeys){
+        if(units.includes(qry[wordIndex]) || qry[wordIndex].isInteger()){
+            parsedParameter[responseKeys[wordIndex]] = qry[wordIndex]; 
+
+            wordIndex++;
+        }
+    }
 }
